@@ -1,11 +1,10 @@
 var express = require("express");
 var app = express();
  
-app.get('/', function(req, res) {
-  res.send('Every day in every way I\'m serving more requests');
+app.set("port", process.env.PORT || 3000);
+app.get("/", function(req, res) {
+res.send("Hello world!");
 });
- 
-var port = Number(process.env.PORT || 5000);
-app.listen(port, function() {
-  console.log("Listening on " + port);
+app.listen(app.get("port"), function() {
+console.log("App started on port " + app.get("port"));
 });
